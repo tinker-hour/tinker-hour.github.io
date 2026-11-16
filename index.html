@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tinker Hour: One hour. One idea. Finally clear.</title>
+<meta name="description" content="Tinker Hour is a YouTube channel where hard tech finally clicks: databases, IoT & MQTT, backend, DevOps and more, explained hands-on.">
+<link rel="canonical" href="https://tinkerhour.com/">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/logo.png">
+<meta name="theme-color" content="#1B2238">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tinker Hour">
+<meta property="og:description" content="One hour. One idea. Finally clear. Hands-on tech tutorials on YouTube.">
+<meta property="og:url" content="https://tinkerhour.com/">
+<meta property="og:image" content="https://tinkerhour.com/assets/og-banner.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1B2238;--ink2:#222B47;--line:#2E3858;--orange:#FF7A2F;--sun:#FFC53D;--cream:#FFF4E4;--teal:#2EC4B6;--muted:#A9B0C7}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--cream);font:600 17px/1.6 Nunito,system-ui,sans-serif;
+    background-image:radial-gradient(circle at 1px 1px,rgba(255,244,228,.06) 1.5px,transparent 2px);background-size:32px 32px}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;font:700 24px Fredoka,sans-serif}
+  .brand img{width:44px;height:44px}
+  .brand span{color:var(--orange)}
+  .links{display:flex;gap:8px}
+  .links a{text-decoration:none;font-weight:800;padding:8px 14px;border-radius:999px;color:var(--muted)}
+  .links a:hover{color:var(--cream);background:var(--ink2)}
+
+  .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;padding:64px 0 80px}
+  h1{font:700 clamp(52px,9vw,104px)/.95 Fredoka,sans-serif;margin:0 0 18px;letter-spacing:-1px}
+  h1 span{color:var(--orange)}
+  .tag{font-size:clamp(20px,2.6vw,28px);font-weight:900;margin:0 0 14px}
+  .tag b{color:var(--sun)}
+  .lead{color:var(--muted);max-width:520px;margin:0 0 30px}
+  .btns{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font:900 17px Nunito,sans-serif;
+    padding:14px 22px;border-radius:14px;border:3px solid var(--orange);transition:transform .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.primary{background:var(--orange);color:var(--ink)}
+  .btn svg{width:22px;height:22px}
+  .hero-art{position:relative;justify-self:center}
+  .hero-art img{width:min(360px,70vw);filter:drop-shadow(0 24px 40px rgba(0,0,0,.4));animation:float 6s ease-in-out infinite}
+  @keyframes float{50%{transform:translateY(-10px) rotate(-2deg)}}
+  @media (prefers-reduced-motion:reduce){.hero-art img{animation:none}}
+
+  h2{font:700 38px/1.1 Fredoka,sans-serif;margin:0 0 8px}
+  .sub{color:var(--muted);margin:0 0 28px}
+  section{padding:56px 0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+  .card{background:var(--ink2);border:2px solid var(--line);border-radius:20px;overflow:hidden;text-decoration:none;
+    display:flex;flex-direction:column;transition:border-color .15s,transform .15s}
+  .card:hover{border-color:var(--orange);transform:translateY(-3px)}
+  .card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+  .card .ph{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;font-size:56px;background:#28335A}
+  .card .body{padding:16px 18px 20px}
+  .pill{display:inline-block;font:900 12px Nunito;letter-spacing:.8px;background:var(--sun);color:var(--ink);padding:4px 10px;border-radius:8px}
+  .card h3{font:700 22px Fredoka,sans-serif;margin:10px 0 4px}
+  .card p{margin:0;color:var(--muted);font-size:15px}
+
+  .steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+  .step{background:var(--ink2);border-radius:20px;padding:22px;border:2px solid var(--line)}
+  .step::before{counter-increment:s;content:counter(s);display:inline-flex;width:40px;height:40px;border-radius:50%;
+    align-items:center;justify-content:center;background:var(--teal);color:var(--ink);font:700 20px Fredoka;margin-bottom:10px}
+  .step h3{font:700 22px Fredoka,sans-serif;margin:0 0 4px}
+  .step p{margin:0;color:var(--muted);font-size:15px}
+  code{background:#2A3456;padding:2px 7px;border-radius:6px;font-size:14px}
+
+  .contact{background:var(--orange);color:var(--ink);border-radius:28px;padding:40px;display:flex;
+    justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .contact h2{margin:0}
+  .contact p{margin:6px 0 0;font-weight:800}
+  .contact .btn{border-color:var(--ink);background:var(--ink);color:var(--cream)}
+  footer{padding:40px 0 60px;color:var(--muted);font-size:14px;text-align:center}
+
+  @media (max-width:760px){
+    .hero{grid-template-columns:1fr;padding:32px 0 48px;text-align:center}
+    .hero-art{order:-1}
+    .lead{margin-left:auto;margin-right:auto}
+    .btns{justify-content:center}
+    .links a.hide-sm{display:none}
+    .contact{padding:28px;text-align:center;justify-content:center}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="brand" href="/"><img src="assets/logo.svg" alt="">Tinker&nbsp;<span>Hour</span></a>
+    <div class="links">
+      <a class="hide-sm" href="#series">Series</a>
+      <a href="https://www.youtube.com/@TinkerHour">YouTube</a>
+      <a href="https://github.com/tinker-hour">GitHub</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <h1>Tinker <span>Hour</span></h1>
+      <p class="tag">One hour. One idea. <b>Finally clear.</b></p>
+      <p class="lead">Hands-on tech tutorials where hard things finally click: databases, IoT &amp; MQTT, backend, DevOps and whatever we tinker with next. Every video comes with code you can run.</p>
+      <div class="btns">
+        <a class="btn primary" href="https://www.youtube.com/@TinkerHour?sub_confirmation=1">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.8 15.1V8.9L15.2 12l-5.4 3.1Z"/></svg>
+          Subscribe on YouTube</a>
+        <a class="btn" href="https://github.com/tinker-hour/code">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5Z"/></svg>
+          Get the code</a>
+      </div>
+    </div>
+    <div class="hero-art"><img src="assets/logo.svg" alt="Tinker Hour logo: a clock with a wrench for a hand"></div>
+  </header>
+
+  <section id="series">
+    <h2>The series</h2>
+    <p class="sub">Each series starts at Ep 1, so you can always jump in at the beginning.</p>
+    <div class="grid">
+      <a class="card" href="https://github.com/tinker-hour/code/tree/main/mqtt-from-zero">
+        <img src="assets/ep-mqtt.png" alt="MQTT Ep 1 thumbnail" loading="lazy">
+        <div class="body"><span class="pill">MQTT</span><h3>MQTT from Zero</h3><p>Brokers, pub/sub, QoS, ESP32 sensors and live dashboards.</p></div>
+      </a>
+      <a class="card" href="https://github.com/tinker-hour/code/tree/main/postgres-finally-clear">
+        <img src="assets/ep-postgres.png" alt="Postgres Ep 1 thumbnail" loading="lazy">
+        <div class="body"><span class="pill">POSTGRES</span><h3>Postgres, Finally Clear</h3><p>Indexes, query plans and the reasons queries get slow.</p></div>
+      </a>
+      <a class="card" href="https://github.com/tinker-hour/code/tree/main/docker-in-an-hour">
+        <div class="ph" aria-hidden="true">🐳</div>
+        <div class="body"><span class="pill">DOCKER</span><h3>Docker in an Hour</h3><p>Images, containers, Compose and shipping a full stack.</p></div>
+      </a>
+      <a class="card" href="https://github.com/tinker-hour/code/tree/main/quick-tinkers">
+        <div class="ph" aria-hidden="true">⚡</div>
+        <div class="body"><span class="pill">QUICK TINKER</span><h3>Quick Tinkers</h3><p>Short one-off builds: FastAPI, scripts and handy tricks.</p></div>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <p class="sub">No slides, no jargon walls. Just build it and see it work.</p>
+    <div class="steps">
+      <div class="step"><h3>Watch</h3><p>Pick an episode. Each one explains a single idea from scratch.</p></div>
+      <div class="step"><h3>Clone</h3><p><code>git clone github.com/tinker-hour/code</code> gets you every command from the video.</p></div>
+      <div class="step"><h3>Tinker</h3><p>Break it, change it, ask questions in the comments. That's how it clicks.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="contact">
+      <div><h2>Say hello 👋</h2><p>Collabs, topic ideas or questions about an episode.</p></div>
+      <a class="btn" href="mailto:hello@tinkerhour.com">hello@tinkerhour.com</a>
+    </div>
+  </section>
+
+  <footer>© <span id="y">2026</span> Tinker Hour · Grab a coffee ☕. It's Tinker Hour.</footer>
+</div>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <!-- Tinker Hour icon: a friendly clock whose long hand is a wrench, posed at "10:10" like a smile -->
+  <defs>
+    <path id="spark" d="M0,-40 C6,-8 8,-6 40,0 C8,6 6,8 0,40 C-6,8 -8,6 -40,0 C-8,-6 -6,-8 0,-40Z"/>
+  </defs>
+
+  <!-- orange disc -->
+  <circle cx="400" cy="400" r="400" fill="#FF7A2F"/>
+
+  <!-- clock face -->
+  <circle cx="400" cy="400" r="270" fill="#FFF4E4" stroke="#1B2238" stroke-width="28"/>
+
+  <!-- hour ticks at 12 / 3 / 6 / 9 -->
+  <g fill="#1B2238" transform="translate(400 400)">
+    <rect x="-12" y="-246" width="24" height="44" rx="12"/>
+    <rect x="-12" y="-246" width="24" height="44" rx="12" transform="rotate(90)"/>
+    <rect x="-12" y="-246" width="24" height="44" rx="12" transform="rotate(180)"/>
+    <rect x="-12" y="-246" width="24" height="44" rx="12" transform="rotate(270)"/>
+  </g>
+
+  <!-- short hand pointing to 10 -->
+  <g transform="translate(400 400) rotate(-60)">
+    <rect x="-21" y="-150" width="42" height="150" rx="21" fill="#1B2238"/>
+  </g>
+
+  <!-- long hand = wrench pointing to 2 -->
+  <g transform="translate(400 400) rotate(60)">
+    <rect x="-21" y="-158" width="42" height="158" rx="21" fill="#1B2238"/>
+    <circle cx="0" cy="-174" r="50" fill="#1B2238"/>
+    <rect x="-17" y="-236" width="34" height="62" rx="8" fill="#FFF4E4"/>
+  </g>
+
+  <!-- centre pin -->
+  <circle cx="400" cy="400" r="34" fill="#FFC53D" stroke="#1B2238" stroke-width="12"/>
+
+  <!-- sparks: the "aha" -->
+  <use href="#spark" fill="#FFC53D" transform="translate(640 160)"/>
+  <use href="#spark" fill="#FFF4E4" transform="translate(712 262) scale(0.45)"/>
+</svg>
