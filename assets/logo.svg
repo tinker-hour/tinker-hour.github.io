@@ -1,8 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
   <!-- Tinker Hour icon: a friendly clock whose long hand is a wrench, posed at "10:10" like a smile -->
-  <defs>
-    <path id="spark" d="M0,-40 C6,-8 8,-6 40,0 C8,6 6,8 0,40 C-6,8 -8,6 -40,0 C-8,-6 -6,-8 0,-40Z"/>
-  </defs>
 
   <!-- orange disc -->
   <circle cx="400" cy="400" r="400" fill="#FF7A2F"/>
@@ -34,6 +31,6 @@
   <circle cx="400" cy="400" r="34" fill="#FFC53D" stroke="#1B2238" stroke-width="12"/>
 
   <!-- sparks: the "aha" -->
-  <use href="#spark" fill="#FFC53D" transform="translate(640 160)"/>
-  <use href="#spark" fill="#FFF4E4" transform="translate(712 262) scale(0.45)"/>
+  <path d="M0,-40 C6,-8 8,-6 40,0 C8,6 6,8 0,40 C-6,8 -8,6 -40,0 C-8,-6 -6,-8 0,-40Z" fill="#FFC53D" transform="translate(640 160)"/>
+  <path d="M0,-40 C6,-8 8,-6 40,0 C8,6 6,8 0,40 C-6,8 -8,6 -40,0 C-8,-6 -6,-8 0,-40Z" fill="#FFF4E4" transform="translate(712 262) scale(0.45)"/>
 </svg>
